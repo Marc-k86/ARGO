@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".LoginActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="20dp"
+        android:orientation="vertical"
+        android:layout_gravity="center">
+
+        <ImageView
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:src="@drawable/logo"
+            android:layout_gravity="center"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorAzul"
+            android:textStyle="bold"
+            android:layout_gravity="center"
+            android:text="Iniciar sessión"
+            android:layout_marginTop="20dp"
+            android:textSize="25dp"/>
+
+        <EditText
+            android:id="@+id/usuario"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:hint="Usuario"
+            android:textColorHint="@color/colorAzul"
+            android:layout_gravity="center"
+            android:drawableLeft="@drawable/ic_person"
+            android:drawablePadding="10dp"
+            android:layout_marginTop="35dp"
+            android:background="@drawable/edit"
+            android:padding="20dp"/>
+
+        <EditText
+            android:id="@+id/contrasena"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"
+            android:hint="Contraseña"
+            android:textColorHint="@color/colorAzul"
+            android:layout_gravity="center"
+            android:drawableLeft="@drawable/ic_key"
+            android:drawablePadding="10dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/edit"
+            android:padding="20dp"/>
+
+        <Spinner
+            android:id="@+id/spinner"
+            android:layout_width="300dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            />
+
+        <Button
+            android:id="@+id/iniciar"
+            android:layout_width="300dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center"
+            android:text="Iniciar"
+            android:textColor="#fff"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/button"/>
+
+    </LinearLayout>
+</LinearLayout>

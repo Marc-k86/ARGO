@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">ARGO</string>
+    <string name="url_login">http://187.141.70.76/android_app/conexion_Android.php</string>
+    <string name="url_plaza">http://187.141.70.76/android_app/plazas_clientes.php</string>
+</resources>
