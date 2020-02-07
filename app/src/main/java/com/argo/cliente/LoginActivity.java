@@ -2,6 +2,7 @@ package com.argo.cliente;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -43,7 +44,7 @@ public class LoginActivity extends AppCompatActivity {
         etContrasena = findViewById(R.id.contrasena);
         bIniciar = findViewById(R.id.iniciar);
         spinner = findViewById(R.id.spinner);
-        spinner.setEnabled(true);
+        spinner.setEnabled(false);
 
         RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
 
@@ -51,6 +52,9 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 postDatos();
+                Intent dep = new Intent(LoginActivity.this,Inicio.class);
+                startActivity(dep);
+                finish();
             }
         });
     }
@@ -113,18 +117,14 @@ public class LoginActivity extends AppCompatActivity {
 
         String url = getResources().getString(R.string.url_plaza);
 
-        StringRequest stringRequest= new StringRequest(Request.Method.GET, url,
+        StringRequest stringRequest= new StringRequest(Request.Method.GET, url+"?usr_usuario="+usuario+"&usr_password="+contrasena,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
                         //Toast.makeText(getApplicationContext(), response.toString(), Toast.LENGTH_LONG).show();
                         try {
-                            JSONObject object = new JSONObject(response);
-                            String idCliente = object.getString("as_cliente");
-                            String nombreCliente = object.getString("as_nombre");
-                            boolean valido = object.getInt("as_access")==1;
-                            if (valido){
-                                spinner.setEnabled(false);
+                               spinner.setEnabled(true);
+                               plaza = new ArrayList<>();
                                 JSONObject jsonObject = new JSONObject(response);
                                 JSONArray jsonArray = jsonObject.getJSONArray("usuario");
                                 for (int i = 0; i < jsonArray.length(); i++) {
@@ -133,9 +133,7 @@ public class LoginActivity extends AppCompatActivity {
                                     plaza.add(country);
                                 }
                                 spinner.setAdapter(new ArrayAdapter(getApplicationContext(), R.layout.support_simple_spinner_dropdown_item, plaza));
-                            }else{
-                                Toast.makeText(getApplicationContext(),"Verifique usuario y contraseña", Toast.LENGTH_LONG).show();
-                            }
+
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }

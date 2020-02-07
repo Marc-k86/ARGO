@@ -6,4 +6,8 @@
 
     <color name="colorAzul">#2CA7E0</color>
     <color name="colorBlanco">#fff</color>
+
+    <color name="list_group_title">#808080</color>
+    <color name="list_item_title">#AAAAAA</color>
+    <color name="group_divider_color">#80CBC4</color>
 </resources>
